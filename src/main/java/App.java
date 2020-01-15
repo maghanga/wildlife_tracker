@@ -48,6 +48,15 @@ public class App {
             return new ModelAndView(model, "endangered.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/sightings/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Sighting> sighting = sightingDao.getAll();
+            List<Animal> animal = animalDao.getAll();
+            model.put("sighting", sighting);
+            model.put("animal", animal);
+            return new ModelAndView(model, "sightings-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 
