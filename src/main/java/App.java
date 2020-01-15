@@ -41,6 +41,13 @@ public class App {
             return new ModelAndView(model, "sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/endangered", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<EndangeredAnimal> endangered = endangeredDao.getAll();
+            model.put("endangered", endangered);
+            return new ModelAndView(model, "endangered.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 
