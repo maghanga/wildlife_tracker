@@ -5,9 +5,9 @@ public class EndangeredAnimal extends Animal {
     private String animal_health;
     private String animal_age;
 
-    public EndangeredAnimal(int id, String animal_name, String animal_age, String animal_health){
+    public EndangeredAnimal(int id, String name, String animal_age, String animal_health){
         this.id = id;
-        this.animal_name = animal_name;
+        this.name = name;
         this.animal_health = animal_health;
         this.animal_age = animal_age;
     }

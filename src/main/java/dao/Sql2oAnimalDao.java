@@ -44,4 +44,18 @@ public class Sql2oAnimalDao implements AnimalDao {
         }
 
     }
+
+    @Override
+    public void add(Animal animal) {
+        String sql = "INSERT INTO animals (name) VALUES (:name)";
+        try(Connection con = sql2o.open()){
+            int id = (int) con.createQuery(sql, true)
+                    .bind(animal)
+                    .executeUpdate()
+                    .getKey();
+            animal.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }

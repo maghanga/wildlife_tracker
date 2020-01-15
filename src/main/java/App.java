@@ -13,7 +13,7 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/wildlife_tracker.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/wildlife_track.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "thomas", "likewater");
         Sql2oAnimalDao animalDao= new Sql2oAnimalDao(sql2o);
         Sql2oEndangeredAnimalDao endangeredDao= new Sql2oEndangeredAnimalDao(sql2o);
@@ -69,7 +69,7 @@ public class App {
         post("/endangered", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int animal_id = Integer.valueOf(req.queryParams("animal_id"));
-            String name = (animalDao.findById(animal_id)).getAnimal_name();
+            String name = (animalDao.findById(animal_id)).getname();
             String age =  req.queryParams("age");
             String health = req.queryParams("health");
             System.out.println(req.queryParams("animal_id"));

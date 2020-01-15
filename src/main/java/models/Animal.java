@@ -2,7 +2,7 @@ package models;
 
 public abstract class Animal {
     public int id;
-    public String animal_name;
+    public String name;
 
     public Animal(){
     }
@@ -11,7 +11,15 @@ public abstract class Animal {
         return id;
     }
 
-    public String getAnimal_name() {
-        return animal_name;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getname() {
+        return name;
+    }
+
+    public void setname(String name) {
+        this.name = name;
     }
 }
