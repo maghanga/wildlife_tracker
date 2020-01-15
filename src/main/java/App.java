@@ -24,7 +24,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Animal> animals = animalDao.getAll();
             model.put("animals", animals);
-            return new ModelAndView(model, "animals.hbs");
+            return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/animals", (req, res) -> {
