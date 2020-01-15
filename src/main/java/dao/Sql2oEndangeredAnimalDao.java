@@ -8,7 +8,7 @@ public class Sql2oEndangeredAnimalDao implements EndangeredAnimalDao{
 
     private final Sql2o sql2o;
 
-    public Sql2oEndangeredDao(Sql2o sql2o) { this.sql2o = sql2o; }
+    public Sql2oEndangeredAnimalDao(Sql2o sql2o) { this.sql2o = sql2o; }
 
     @Override
     public List<EndangeredAnimal> getAll() {
