@@ -34,7 +34,15 @@ public class App {
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/sightings", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Sighting> sightings = sightingDao.getAll();
+            model.put("sightings", sightings);
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
 
+
+    }
 
 
 }
