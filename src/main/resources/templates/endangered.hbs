@@ -1,0 +1,28 @@
+{{#partial "content"}}
+    <br><br>
+    <h3>ENDANGERED ANIMALS IN THE AREA</h3>
+    <div class="row animals-container">
+        {{#if endangered}}
+            {{#each endangered }}
+                <div class="card card-transparent">
+                    <div class="card-body">
+                        <div class="attributes">
+                            <div class="animal-attributes">
+                                <img class="avatar" src="/images/{{animal_id}}.jpeg"><br>
+                            </div>
+                            <div class="animal-attributes">
+                                <a><h1>{{ health }}</h1></a>
+                                <a><h1>{{ age }}</h1></a>
+                                <a href="/sightings/new"><button class="btn btn-primary">Report Sighting</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <p>No animals yet!</p>
+        {{/if}}
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
