@@ -81,10 +81,10 @@ public class App {
 
         post("/sightings", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int animal_id = Integer.valueOf(req.queryParams("animal_id"));
+            int animal_id = Integer.parseInt(req.queryParams("animal_id"));
             String ranger_name =  req.queryParams("ranger_name");
             String location = req.queryParams("location");
-            System.out.println(req.queryParams("animal_id"));
+            System.out.println(req.queryParams("animal_name"));
             System.out.println(animal_id);
             Sighting newSighting = new Sighting(animal_id,location,ranger_name);
             sightingDao.add(newSighting);

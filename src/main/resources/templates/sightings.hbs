@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    <br><br>
+    <h3>SIGHTINGS IN THE AREA</h3>
+    <div class="animals-container">
+        <table class="table table-striped">
+            <thead>
+            <th>Animal ID: </th>
+            <th>Location: </th>
+            <th>Spotted By: </th>
+            <th>Date: </th>
+            </thead>
+            {{#if sightings}}
+                {{#each sightings}}
+                    <tr><td>{{animal_id}}</td>{{location}}<td>{{ranger_name}}</td><td></td><td>Today</td></tr>
+                {{/each}}
+            {{else}}
+                <p>No sightings yet</p>
+            {{/if}}
+        </table>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

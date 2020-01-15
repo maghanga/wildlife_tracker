@@ -1,0 +1,135 @@
+{{#partial "content"}}
+    <br><br>
+    <h3>ANIMALS IN THE AREA</h3>
+    <div class="row animals-container">
+        {{#if animals}}
+            {{#each animals }}
+                <div class="card card-transparent">
+                    <div class="card-body">
+                        <div class="attributes">
+                            <div class="animal-attributes">
+                                <img class="avatar" src="/images/animals/{{id}}.jpeg"><br>
+                            </div>
+
+                            <div class="animal-attributes">
+                                <a><h1>{{ name }}</h1></a>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sightingModal{{id}}">Report Sighting</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#endangeredModal{{id}}">Make Endangered</button>
+
+                                <div class="modal fade" id="endangeredModal{{id}}" role="dialog">
+                                    <div class="modal-dialog">
+
+
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2>MAKE {{name}}s endangered</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/endangered" method="post">
+
+
+                                                    <div class="form-group">
+                                                        <label for="animal_id">Animal ID</label>
+                                                        <input id="animal_id" class="form-control" type="text" value="{{ id }}" placeholder="{{name}}" name="animal_id" readonly>
+
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="age">Age</label>
+                                                        <select id="age" class="form-control" name="age">
+                                                            <option value="newborn">newborn</option>
+                                                            <option value="young">young</option>
+                                                            <option value="adult">adult</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="health">Health</label>
+                                                        <select id="health" class="form-control" name="health">
+                                                            <option value="healthy">healthy</option>
+                                                            <option value="ill">ill</option>
+                                                            <option value="okay">okay</option>
+                                                        </select>
+                                                    </div>
+
+
+                                                    <button type="submit" class="btn btn-warning">Make endangered</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="modal fade" id="sightingModal{{id}}" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2>Report Sighting</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/sightings" method="post">
+
+
+                                                    <div class="form-group">
+                                                        <label for="animal_id">Animal</label>
+                                                        <input id="animal_id" class="form-control" type="text" value="{{ id }}" placeholder="{{name}}" name="animal_id" readonly>
+
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="location">Location</label>
+                                                        <select id="location" class="form-control" name="location">
+                                                            <option label="- Choose location -"></option>
+                                                            <option value="Buffer zone">Buffer zone</option>
+                                                            <option value="Outer core">Outer core</option>
+                                                            <option value="Margin">Margin</option>
+                                                            <option value="Canopy">Canopy</option>
+                                                            <option value="Lake area">Lake area</option>
+                                                            <option value="Inner core">Inner core</option>
+
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ranger_name">Ranger</label>
+                                                        <input id="ranger_name" class="form-control" name="ranger_name" type="text"><br>
+                                                    </div>
+
+
+                                                    <button type="submit" class="btn btn-success">Record Sighting</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            {{/each}}
+        {{else}}
+            <p>No animals yet!</p>
+        {{/if}}
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

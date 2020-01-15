@@ -33,3 +33,6 @@ body {
 h3 {
     text-decoration: underline;
 }
+.avatar {
+    border-radius: 50%;
+}

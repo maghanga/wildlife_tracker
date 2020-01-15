@@ -21,7 +21,7 @@ public class Sighting {
         this.location = location;
     }
 
-    public void setRanger_id(String ranger_id) {
+    public void setranger_id(String ranger_id) {
         this.ranger_id = ranger_id;
     }
 }
