@@ -1,12 +1,10 @@
 package models;
 
-public class Animal {
+public abstract class Animal {
     private int id;
     private String animal_name;
-    private int sighting_id;
 
-    public Animal(int sighting_id, String animal_name){
-        this.sighting_id = sighting_id;
+    public Animal(String animal_name){
         this.animal_name = animal_name;
     }
 
@@ -26,11 +24,4 @@ public class Animal {
         this.animal_name = animal_name;
     }
 
-    public int getSighting_id() {
-        return sighting_id;
-    }
-
-    public void setSighting_id(int sighting_id) {
-        this.sighting_id = sighting_id;
-    }
 }
