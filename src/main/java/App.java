@@ -13,7 +13,7 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:postgresql://localhost:5432/wildlife_tracker";
+        String connectionString = "jdbc:h2:~/wildlife_tracker.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "thomas", "likewater");
         Sql2oAnimalDao animalDao= new Sql2oAnimalDao(sql2o);
         Sql2oEndangeredAnimalDao endangeredDao= new Sql2oEndangeredAnimalDao(sql2o);

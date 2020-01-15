@@ -10,4 +10,6 @@ public interface AnimalDao {
     Animal findById(int id);
 
     void endanger(int animal_id, String animal_health, String animal_age);
+
+    void add(Animal animal);
 }
