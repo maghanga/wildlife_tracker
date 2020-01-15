@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Sighting {
     private int animal_id;
     private String sight_location;
-    private String ranger_name;
+    private String ranger_id;
 
-    public Sighting(int animal_id, String sight_location, String ranger_name){
+    public Sighting(int animal_id, String sight_location, String ranger_id){
         this.animal_id = animal_id;
         this.sight_location = sight_location;
-        this.ranger_name = ranger_name;
+        this.ranger_id = ranger_id;
     }
 
     public void setAnimal_id(int animal_id) {
@@ -21,7 +21,7 @@ public class Sighting {
         this.sight_location = sight_location;
     }
 
-    public void setRanger_name(String ranger_name) {
-        this.ranger_name = ranger_name;
+    public void setRanger_id(String ranger_id) {
+        this.ranger_id = ranger_id;
     }
 }
