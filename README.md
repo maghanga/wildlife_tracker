@@ -23,7 +23,7 @@ To get started with the wildlife tracker you need to do the following :
 ```bash
 mkdir myprojects
 cd myprojects
-git clone https://github.com/Nathan-Kimutai/wildlifetracker.git
+git clone https://github.com/thinknehru/wildlife-tracker.git
 ```
 Make sure you recreate the database on your local machine. To do that execute the following schema:
 It might or might not work so try
